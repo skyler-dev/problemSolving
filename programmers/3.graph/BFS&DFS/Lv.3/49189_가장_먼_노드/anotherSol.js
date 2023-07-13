@@ -7,6 +7,8 @@
 // 핵심 키워드는 "노드", "간선", "최단경로"
 // 최단 경로가 제일 큰 경우의 집합을 구하는 문제
 
+// BFS + Queue 버전
+
 class Queue {
     constructor(){
         this.queue = [];
@@ -35,18 +37,23 @@ function solution(n, edge) {
         graph[dest].push(src);
     }
 
-    // 각 정점의 거리 기록
+    // 각 정점의 거리 기록 (방문처리 겸)
     const distance = Array(n + 1).fill(0);
-    distance[1] = 1; // 첫 정점
+    distance[1] = 1; // 첫 정점 방문처리
 
     // BFS
     const queue = new Queue();
     queue.enqueue(1);
     while(!queue.isEmpty()) {
         const src = queue.dequeue();
+        // 인접 정점 방문
         for(const dest of graph[src]) {
+            // 방문했던 곳은 무시
+            // 방문하지 않았던 정점만,
             if(distance[dest] === 0) {
+                // 큐에 추가하고
                 queue.enqueue(dest);
+                // 방문처리
                 distance[dest] = distance[src] + 1;
             }
         }

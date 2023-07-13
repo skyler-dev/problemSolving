@@ -7,6 +7,8 @@
 // 핵심 키워드는 "노드", "간선", "최단경로"
 // 최단 경로가 제일 큰 경우의 집합을 구하는 문제
 
+// BFS + arr.shift 버전
+
 function solution(n, edge) {
     // 인접리스트로 그래프 구현
     // 1. 정점의 수만큼 배열 만들기
@@ -19,19 +21,23 @@ function solution(n, edge) {
         graph[dest].push(src);
     }
 
-    // 각 정점의 거리 기록
+    // 각 정점의 거리 기록 (방문처리 겸)
     const distance = Array(n + 1).fill(0);
-    distance[1] = 1; // 첫 정점
+    distance[1] = 1; // 첫 정점 방문처리
 
     // BFS
     const queue = [1];
     // 빈 큐가 되면 종료
     while(queue.length > 0) {
         const src = queue.shift();// shift는 O(n)이지만 요소가 적을 경우에는 자바스크립트 엔진에서 최적화를 해준다.
+        // 인접 정점 방문
         for(const dest of graph[src]) {
-            // 가지않은 경로는
+            // 방문했던 곳은 무시
+            // 방문하지 않았던 정점만(가지 않은 경로만),
             if(distance[dest] === 0) {
+                // 큐에 추가하고
                 queue.push(dest);
+                // 방문처리
                 distance[dest] = distance[src] + 1;
             }
         }
