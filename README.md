@@ -60,6 +60,7 @@ It is a repository of problem solving to get used to Javascript.
   ```
 ## 더 읽을 거리
 몇몇 문제는 접근법, 패턴, 추가 학습한 내용 등을 notion에 정리해두었습니다. 아래 링크를 참고해주세요.
+- [[패턴] DP(feat. N으로 표현 문제)](https://skyler-dev.notion.site/DP-feat-N-f3f76d0d2a2145ab822558cc4e5b3e6e?pvs=4)
 - [[패턴] 백트래킹(feat. N-Queen 문제)](https://skyler-dev.notion.site/feat-N-Queen-02c9a274d1804392ad4bb5f119512940?pvs=4)
 - [[패턴] union-find (feat. 전력망을 둘로 나누기 문제)](https://skyler-dev.notion.site/union-find-feat-5302132d196543ab9b347c014ab626cb?pvs=4)
 - [[패턴][알고리즘] 슬라이딩 윈도우 패턴 (feat. 할인 행사 문제)](https://skyler-dev.notion.site/feat-d947bf373a024d61977e0d18f67043e8?pvs=4)
