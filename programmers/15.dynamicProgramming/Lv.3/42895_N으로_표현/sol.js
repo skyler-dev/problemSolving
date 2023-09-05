@@ -64,6 +64,7 @@ function solution(N, number) {
             for(let operand1 of table[j]){
                 for(let operand2 of table[k]){
                     // 4가지 경우
+                    // N의 최소 사용을 찾는 것이므로 음수나 0은 체크할 필요가 없다
                     const tmps = [
                         operand1 + operand2,
                         Math.abs(operand1 - operand2),
@@ -72,7 +73,7 @@ function solution(N, number) {
                     ];
                     for(const tmp of tmps){
                         if(tmp === number) return i; // 반환
-                        if(tmp !== 0 && !check.has(tmp)){
+                        if(tmp !== 0 && !check.has(tmp)){ 
                             table[i].push(tmp);
                             check.add(tmp);
                         }
